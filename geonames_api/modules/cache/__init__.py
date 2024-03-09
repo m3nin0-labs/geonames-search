@@ -1,0 +1,19 @@
+#
+# Copyright (C) 2023 Geonames API.
+#
+# Geonames API is free software; you can redistribute it and/or modify it
+# under the terms of the MIT License; see LICENSE file for more details.
+
+"""Geonames API cache module."""
+
+from flask_caching import Cache
+
+cache = Cache()
+
+
+def init_module(app):
+    """Initialize the ``Cache`` module."""
+    cache.init_app(app)
+
+
+__all__ = ("init_module",)

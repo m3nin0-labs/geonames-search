@@ -1,0 +1,31 @@
+#
+# Copyright (C) 2023 Geonames API.
+#
+# Geonames API is free software; you can redistribute it and/or modify it
+# under the terms of the MIT License; see LICENSE file for more details.
+#
+
+[default]
+#
+# Flask configurations
+#
+SERVER_NAME = "127.0.0.1:5000"
+APPLICATION_ROOT = "/"
+
+#
+# Cache
+#
+CACHE_TYPE = "RedisCache"
+
+CACHE_REDIS_URL = "redis://localhost:6379/0"
+
+CACHE_KEY_PREFIX = "geonamesapi"
+
+CACHE_DEFAULT_TIMEOUT = 5000
+
+#
+# Open Search configurations
+#
+opensearch.config.hosts = [
+    { host = "localhost", port = 9200 }
+]

@@ -1,0 +1,18 @@
+#
+# Copyright (C) 2023 Geonames API.
+#
+# Geonames API is free software; you can redistribute it and/or modify it
+# under the terms of the MIT License; see LICENSE file for more details.
+
+"""Geonames API Base errors module."""
+
+
+from flask_resources import HTTPJSONException
+
+
+def error_json_response(error):
+    """Error JSON response factory.
+
+    Bases on Invenio RFC 35 (https://github.com/inveniosoftware/rfcs/blob/master/rfcs/framework-0035-error-handling-and-response.md)
+    """
+    return HTTPJSONException(code=error.code, description=error.description)

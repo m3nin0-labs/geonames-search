@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "geonames-search"
+version = "0.1.0"
+description = ""
+authors = ["Felipe Carlos <efelipecarlos@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "geonames_api"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = "^3.0.0"
+flask-sqlalchemy = "^3.1.1"
+flask-resources = "^1.1.0"
+flask-marshmallow = "^0.15.0"
+marshmallow-utils = "^0.8.2"
+opensearch-py = "^2.4.2"
+luqum = "^0.13.0"
+flask-caching = "^2.1.0"
+redis = "^5.0.1"
+dynaconf = "^3.2.4"
+flask-cors = "^4.0.0"
+gunicorn = "^21.2.0"
+marshmallow-sqlalchemy = "^1.0.0"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.13"
+pre-commit = "^3.6.0"
+pytest = "^7.4.4"
+
+[tool.poetry.scripts]
+black = "black:patched_main"
+
+[tool.isort]
+profile = "black"
+line_length = 88
+skip_glob = [ "docs", "notes" ]
+
+[tool.ruff]
+select = [
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "UP",  # pyupgrade
+  "I",   # isort
+  "N",   # pep8 naming
+  "PL",  # pylint
+]
+
+[tool.ruff.lint.pylint]
+max-args = 10
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
