@@ -9,7 +9,7 @@
 #
 # Flask configurations
 #
-SERVER_NAME = "127.0.0.1:5000"
+SERVER_NAME = "127.0.0.1:8000"
 APPLICATION_ROOT = "/"
 
 #
@@ -17,7 +17,7 @@ APPLICATION_ROOT = "/"
 #
 CACHE_TYPE = "RedisCache"
 
-CACHE_REDIS_URL = "redis://localhost:6379/0"
+CACHE_REDIS_URL = "redis://geonames-cache:6379/0"
 
 CACHE_KEY_PREFIX = "geonamesapi"
 
@@ -27,5 +27,5 @@ CACHE_DEFAULT_TIMEOUT = 5000
 # Open Search configurations
 #
 opensearch.config.hosts = [
-    { host = "localhost", port = 9200 }
+    { host = "geonames-os", port = 9200 }
 ]
