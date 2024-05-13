@@ -24,7 +24,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installation (Docker)
 
-1. **Clone the repository**
+**1. Clone the repository**
 
 ```bash
 git clone https://github.com/m3nin0-labs/geonames-search.git
@@ -32,7 +32,7 @@ git clone https://github.com/m3nin0-labs/geonames-search.git
 cd geonames-search
 ```
 
-2. **Start the Infrastructure**
+**2. Start the Infrastructure**
 
 Use the `make up` command to start the OpenSearch instance, Redis cache, and the Geonames Search service.
 
@@ -40,13 +40,13 @@ Use the `make up` command to start the OpenSearch instance, Redis cache, and the
 make up
 ```
 
-3. **Index Geonames**
+**3. Index Geonames**
 
 To index the Geonames data, you can use the [Geonames Index project](https://github.com/m3nin0-labs/geonames-index).
 
 ## Development
 
-1. **Clone the repository**
+**1. Clone the repository**
 
 ```bash
 git clone https://github.com/m3nin0-labs/geonames-search.git
@@ -54,7 +54,7 @@ git clone https://github.com/m3nin0-labs/geonames-search.git
 cd geonames-search
 ```
 
-2. **Install Dependencies**
+**2. Install Dependencies**
 
 Install all necessary Python dependencies using Poetry.
 
@@ -62,7 +62,7 @@ Install all necessary Python dependencies using Poetry.
 poetry install --with dev
 ```
 
-3. **Run the Application**
+**3. Run the Application**
 
 Start the Flask application.
 
