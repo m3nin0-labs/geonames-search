@@ -8,10 +8,10 @@
 version: "3"
 
 services:
-  search:
+  geonames-os:
     image: opensearchproject/opensearch:2.3.0
     restart: "unless-stopped"
-    container_name: geonames-index-search
+    container_name: geonames-os
     environment:
       # settings only for development. DO NOT use in production!
       - bootstrap.memory_lock=true
@@ -30,22 +30,30 @@ services:
     ports:
       - "9200:9200"
       - "9600:9600"
-  search-dashboard:
+  geonames-os-dashboard:
     image: opensearchproject/opensearch-dashboards:2.3.0
     restart: "unless-stopped"
-    container_name: geonames-index-dashboard
+    container_name: geonames-dashboard
     ports:
       - "5601:5601"
     expose:
       - "5601"
     environment:
       # settings only for development. DO NOT use in production!
-      - 'OPENSEARCH_HOSTS=["http://search:9200"]'
+      - 'OPENSEARCH_HOSTS=["http://geonames-os:9200"]'
       - "DISABLE_SECURITY_DASHBOARDS_PLUGIN=true"
-  cache:
+  geonames-cache:
     image: redis
     restart: "unless-stopped"
     container_name: geonames-cache
     read_only: true
     ports:
       - "6379:6379"
+  geonames-service:
+    image: geonames-search/api:v0.1.0
+    build: .
+    container_name: geonames-service
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${PWD}/settings.toml:/app/settings.toml:ro
